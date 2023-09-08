@@ -8,12 +8,12 @@ public class JBus
         System.out.println("getBusId : " + getBusId());
         System.out.println("getBusName : " + getBusName());
         System.out.println("isDiscount : " + isDiscount());
-        System.out.println("getDiscountPrecentage : " + getDiscountPrecentage(1000,900));
-        System.out.println("getDiscountedPrice : " + getDiscountedPrice(1000 , 10.0f));
-        System.out.println("getOriginalPrice : " + getOriginalPrice(900,10.0f));
+        System.out.println("getDiscountPrecentage : " + getDiscountPrecentage(0,0));
+        System.out.println("getDiscountedPrice : " + getDiscountedPrice(0, 0.0f));
+        System.out.println("getOriginalPrice : " + getOriginalPrice(0,120.0f));
         System.out.println("getAdminFeePrecantge : " + getAdminFeePrecentage());
         System.out.println("getAdminFee : " + getAdminFee(1000));
-        System.out.println("getTotalPrice : " + getTotalPrice(0,2));
+        System.out.println("getTotalPrice : " + getTotalPrice(10000,2));
     }
 
    
@@ -30,7 +30,7 @@ public class JBus
         if (beforeDiscount - afterDiscount <= 0){
             return 0.0f;
         } else{
-            return ((beforeDiscount - afterDiscount) / beforeDiscount) * 100;
+            return ((beforeDiscount - afterDiscount) / beforeDiscount) * 100.0f;
         }
     }
     public static int getDiscountedPrice (int price, float discountPrecentage){
@@ -42,7 +42,7 @@ public class JBus
         }
     }
     public static int getOriginalPrice (int discountedPrice, float discountPrecentage){
-        if (discountPrecentage >= 100f){
+        if (discountPrecentage >= 100.0f){
             return 0;
         }else{
             return Math.round(discountedPrice / (1f - (discountPrecentage/100f)));
