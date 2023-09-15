@@ -30,7 +30,7 @@ public class Price
             return 0;
         }
         else{
-            return price * ((100 - discount) / 100);
+            return ((float)price * ((100 - discount) / 100));
         }
     }
     

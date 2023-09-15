@@ -29,7 +29,9 @@ public class Rating
         }
         
         else{
-            return this.total/this.count;
+            return (float)this.total/this.count;
         }
     }
+
+    
 }
