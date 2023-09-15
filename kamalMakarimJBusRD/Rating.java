@@ -2,7 +2,6 @@ package kamalMakarimJBusRD;
 
 public class Rating
 {
-    // instance variables - replace the example below with your own
     private long count;
     private long total;
     
