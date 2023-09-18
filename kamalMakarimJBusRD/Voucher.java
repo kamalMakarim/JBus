@@ -23,13 +23,20 @@ public class Voucher
     
     public double apply(Price price){
         this.used = true;
-        if(type == Type.DISCOUNT){
-            this.cut = (0.01* price.discount) * price.price;
+        
+        if(type == Type.DISCOUNT){    
+            if(price.price <= price.rebate){
+                this.cut = 100;
+            }
+            
+            else{
+                this.cut = (price.rebate * 100) / price.price;
+            }
         }
+        
         if(type == Type.REBATE){
             this.cut = price.rebate;
         }
-        
         return price.price - cut;
     }
     
