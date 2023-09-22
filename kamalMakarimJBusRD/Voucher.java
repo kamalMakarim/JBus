@@ -1,10 +1,7 @@
 package kamalMakarimJBusRD;
 
-
-
-public class Voucher
+public class Voucher extends Serializable
 {
-    // instance variables - replace the example below with your own
     public String name;
     private boolean used;
     public double minimum;
@@ -12,7 +9,8 @@ public class Voucher
     public int code;
     public Type type;
     
-    public void Voucher(String name,int code , Type type, double minimum, double cut){
+    public Voucher(int id, String name,int code , Type type, double minimum, double cut){
+        super(id);
         this.name = name;
         this.used = false;
         this.minimum = minimum;
@@ -20,7 +18,7 @@ public class Voucher
         this.code = code;
         this.type = type;
     }
-    
+
     public double apply(Price price){
         
         if(canApply(price) == false){
@@ -57,4 +55,7 @@ public class Voucher
             return false;
         }
     }
+    
 }
+
+
