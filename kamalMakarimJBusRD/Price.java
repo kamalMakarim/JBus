@@ -43,4 +43,8 @@ public class Price
             return this.price-this.rebate;
         }
     }
+    
+    public String toString (){
+        return "price: " + price + "\tdiscount: " + discount + "\trebate" + rebate;
+    }
 }

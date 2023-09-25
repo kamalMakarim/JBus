@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Renter
-comment1.params=id\ address
+comment1.params=id\ companyName
 comment1.target=Renter(int,\ java.lang.String)
 comment2.params=id\ companyName\ address
 comment2.target=Renter(int,\ java.lang.String,\ java.lang.String)

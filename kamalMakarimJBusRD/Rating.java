@@ -33,5 +33,7 @@ public class Rating
         }
     }
 
-    
+    public String toString(){
+        return "count: " + count + "\ttotal: " + total;
+    }
 }

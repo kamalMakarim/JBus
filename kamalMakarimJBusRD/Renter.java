@@ -7,10 +7,10 @@ public class Renter extends Serializable
     public String companyName;
     public int phoneNumber;
     
-    public Renter(int id, String address){
+    public Renter(int id, String companyName){
         super(id);
-        this.address = address;
-        this.companyName = "";
+        this.address = "";
+        this.companyName = companyName;
         this.phoneNumber = 0;
     }
     
