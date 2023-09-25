@@ -27,6 +27,6 @@ public class Bus extends Serializable
     }
     
     public String toString(){
-        return "busId: " + id + "\tcapacity: " + capacity + "\tfacility: " + facility + "\tname: " + name + "\tprice: " + price + "\tbusType: " + busType + "\tcity: " + city + "\tdeparture: " + departure.toString() + "\tarrival" + arrival.toString();
+        return "\nbusId: " + id + "\ncapacity: " + capacity + "\nfacility: " + facility + "\nname: " + name + price + "\nbusType: " + busType + "\ncity: " + city + "\nDeparture: " + departure + "\nArrival" + arrival;
     }
 }

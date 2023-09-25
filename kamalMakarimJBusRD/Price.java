@@ -45,6 +45,6 @@ public class Price
     }
     
     public String toString (){
-        return "price: " + price + "\tdiscount: " + discount + "\trebate" + rebate;
+        return "\nprice: " + price + "\ndiscount: " + discount + "\nrebate: " + rebate;
     }
 }

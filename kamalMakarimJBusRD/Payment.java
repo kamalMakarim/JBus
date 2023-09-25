@@ -21,7 +21,7 @@ public class Payment extends Invoice
     }
     
     public String toString(){
-        return "PaymentId: " + id + "\tTime: " + time + "\tbuyerId: " + buyerId + "\trenterId" + renterId + "\tbusId" + busId + "\tdepartureTime: " + departureDate + "\tbusSeat+ " + busSeat;
+        return "\nPaymentId: " + id + "\nTime: " + time + "\nbuyerId: " + buyerId + "\nrenterId" + renterId + "\nbusId" + busId + "\ndepartureTime: " + departureDate + "\nbusSeat+ " + busSeat;
     }
     
     public int getBusId(){

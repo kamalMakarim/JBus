@@ -14,6 +14,6 @@ public class Station extends Serializable
     }
     
     public String toString(){
-        return "StationId: " + id + "\tCity: " + city + "\tStation Name: " + stationName;
+        return "\nStationId: " + id + "\nCity: " + city + "\nStation Name: " + stationName;
     }
 }

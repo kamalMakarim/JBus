@@ -13,6 +13,6 @@ public class Review extends Serializable
     }
     
     public String toString(){
-        return "ReviewId: " + id +"\tDate: " + date + "\tDesc: " + desc;
+        return "\nReviewId: " + id +"\nDate: " + date + "\nDesc: " + desc;
     }
 }

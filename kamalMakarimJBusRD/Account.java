@@ -16,6 +16,6 @@ public class Account extends Serializable
     }
     
     public String toString(){
-        return "accountId: " + id + "\temail: " + email + "\tname: " + name + "\tpassword: " + password;
+        return "\naccountId: " + id + "\nemail: " + email + "\nname: " + name + "\npassword: " + password;
     }
 }

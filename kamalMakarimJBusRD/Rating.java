@@ -34,6 +34,6 @@ public class Rating
     }
 
     public String toString(){
-        return "count: " + count + "\ttotal: " + total;
+        return "\ncount: " + count + "\ntotal: " + total;
     }
 }
