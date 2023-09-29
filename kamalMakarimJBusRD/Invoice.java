@@ -1,8 +1,10 @@
 package kamalMakarimJBusRD;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 public class Invoice extends Serializable
 {
-    public String time;
+    public Calendar time;
     public int buyerId;
     public int renterId;
     public BusRating rating;
@@ -22,26 +24,27 @@ public class Invoice extends Serializable
     }
 
     
-    public Invoice(int id, int buyerId, int renterId, String time){
+    public Invoice(int id, int buyerId, int renterId){
         super(id);
-        this.time = time;
+        this.time = Calendar.getInstance();
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.rating = BusRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
     
-    public Invoice(int id, Account buyer, Renter renter, String time){
+    public Invoice(int id, Account buyer, Renter renter){
         super(id);
-        this.time = time;
+        this.time = Calendar.getInstance();
         this.buyerId = buyer.id;
         this.renterId = renter.id;
         this.rating = BusRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
     
-    public String toString(){
-        return "\nInvoiceId: " + id + "\nTime: " + time + "\nbuyerId: " + buyerId + "\nrenterId: " + renterId + "\nrating: " + rating + "\nstatus: " + status;
+    public String toString() {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");  
+    return "\nInvoiceId: " + id + "\nTime: " + sdf.format(time.getTime()) + "\nbuyerId: " + buyerId + "\nrenterId: " + renterId + "\nrating: " + rating + "\nstatus: " + status;
     }
-    
+
 }

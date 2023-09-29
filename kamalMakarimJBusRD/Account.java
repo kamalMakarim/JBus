@@ -1,7 +1,7 @@
 package kamalMakarimJBusRD;
 
 
-public class Account extends Serializable
+public abstract class Account extends Serializable implements FileParser
 {
     public String email;
     public String name;
