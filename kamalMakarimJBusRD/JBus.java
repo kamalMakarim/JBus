@@ -13,8 +13,8 @@ public class JBus
         Bus b = createBus();
         Timestamp schedule1 = Timestamp.valueOf("2023-7-18 15:00:00");
         Timestamp schedule2 = Timestamp.valueOf("2023-7-20 12:00:00");
-        b.addSchedule(schedule1, 12);
-        b.addSchedule(schedule2, 12);
+        b.addSchedule(schedule1);
+        b.addSchedule(schedule2);
         b.schedules.forEach(Schedule :: printSchedule);
         Timestamp t1 = Timestamp.valueOf("2023-7-19 15:00:00");
         System.out.println("Make booking at July 19, 2023 15:00:00 Seat BR12");

@@ -46,10 +46,8 @@ public class Bus extends Serializable implements FileParser
         return "\nbusId: " + id + "\ncapacity: " + capacity + "\nfacility: " + facility + "\nname: " + name + price + "\nbusType: " + busType + "\ncity: " + city + "\nDeparture: " + departure + "\nArrival" + arrival;
     }
     
-    public void addSchedule(Timestamp time, int numberOfSeats){
-        Schedule newSch = new Schedule(time, numberOfSeats);
-        schedules.add(newSch);
-    }
-    
+    public void addSchedule(Timestamp schedule) { 
+        schedules.add(new Schedule(schedule, this.capacity));
+    }   
 }
 
