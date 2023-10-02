@@ -1,10 +1,11 @@
 package kamalMakarimJBusRD;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Calendar;
 import java.text.SimpleDateFormat;
+import java.util.Map;
+import java.sql.Timestamp;
 
-public abstract class Bus extends Serializable implements FileParser
+public class Bus extends Serializable implements FileParser
 {
     // instance variables - replace the example below with your own
     public int capacity;
@@ -16,6 +17,16 @@ public abstract class Bus extends Serializable implements FileParser
     public Station departure;
     public Station arrival;
     public List<Schedule> schedules;
+    
+    @Override
+    public Object write() {
+        return null; 
+    }
+
+    @Override
+    public boolean read(String string) {
+        return false;
+    }
     
     public Bus(int id, String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival)
     {
@@ -35,10 +46,10 @@ public abstract class Bus extends Serializable implements FileParser
         return "\nbusId: " + id + "\ncapacity: " + capacity + "\nfacility: " + facility + "\nname: " + name + price + "\nbusType: " + busType + "\ncity: " + city + "\nDeparture: " + departure + "\nArrival" + arrival;
     }
     
-    public void addSchedule(Calendar calendar){
-        Schedule newSch = new Schedule(calendar, capacity);
+    public void addSchedule(Timestamp time, int numberOfSeats){
+        Schedule newSch = new Schedule(time, numberOfSeats);
         schedules.add(newSch);
     }
     
-    
 }
+

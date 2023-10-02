@@ -1,10 +1,10 @@
 package kamalMakarimJBusRD;
-import java.util.Calendar;
 import java.text.SimpleDateFormat;
+import java.sql.Timestamp;
 
 public class Invoice extends Serializable
 {
-    public Calendar time;
+    public Timestamp time;
     public int buyerId;
     public int renterId;
     public BusRating rating;
@@ -26,7 +26,7 @@ public class Invoice extends Serializable
     
     public Invoice(int id, int buyerId, int renterId){
         super(id);
-        this.time = Calendar.getInstance();
+        this.time = new Timestamp(System.currentTimeMillis());
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.rating = BusRating.NONE;
@@ -35,7 +35,7 @@ public class Invoice extends Serializable
     
     public Invoice(int id, Account buyer, Renter renter){
         super(id);
-        this.time = Calendar.getInstance();
+        this.time = new Timestamp(System.currentTimeMillis());
         this.buyerId = buyer.id;
         this.renterId = renter.id;
         this.rating = BusRating.NONE;
