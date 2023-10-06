@@ -66,7 +66,7 @@ public class Algorithm {
     }
 
     public static <T> List<T>  collect(Iterator<T> iterator, Predicate<T> pred) {
-        List<T> result = new LinkedList<T>();
+        List<T> result = new LinkedList<>();
         while (iterator.hasNext()) {
             T current = iterator.next();
             if (pred.predicate(current)) {
