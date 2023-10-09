@@ -163,7 +163,7 @@ public class Algorithm {
 
     public static <T> List<T> paginate(Iterator<T> iterator, int page, int pageSize, Predicate<T> pred){
         if(iterator == null || pred == null || page < 0 || pageSize < 1){
-            throw new IllegalArgumentException("Invalid");
+            throw new IllegalArgumentException("Invalid Parameter");
         }
 
         List <T> res = new LinkedList<>();
@@ -175,10 +175,10 @@ public class Algorithm {
             if (counter < page * pageSize){
                 continue;
             }
-            if (counter > (pageSize*page)+pageSize){
+            if (counter >= pageSize + (page * pageSize)){
                 break;
             }
-            if(pred.predicate(item)){
+            if(pred.predicate(item)) {
                 res.add(item);
             }
         }
