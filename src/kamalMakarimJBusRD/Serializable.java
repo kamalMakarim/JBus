@@ -17,11 +17,16 @@ public class Serializable {
     }
 
     public static <T> Integer getLastAssignedId(Class<?> cls) {
-        return mapCounter.get(cls);
+        Integer temp = mapCounter.get(cls);
+        if(mapCounter.get(cls) != null){
+            return temp;
+        }
+        return 0;
     }
 
     public static <T> Integer setLastAssignedId(Class<?> cls, Integer id) {
-        return mapCounter.put(cls, id);
+        mapCounter.put(cls, id);
+        return getLastAssignedId(cls);
     }
 
     public boolean equals(Serializable obj) {
@@ -32,6 +37,7 @@ public class Serializable {
         return obj != null && obj.getClass() == this.getClass() && obj.id == id;
     }
 
+    @Override
     public boolean equals(Object obj) {
         return obj != null && obj.getClass() == getClass() && ((Serializable) obj).id == id;
     }

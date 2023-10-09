@@ -1,6 +1,7 @@
 package kamalMakarimJBusRD;
 import java.util.LinkedHashMap;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -62,5 +63,33 @@ public class Schedule {
         }
         System.out.println("\n");
     }
-    
+
+    public boolean isSeatAvailable(List<String> seats){
+        for(String seat : seats){
+            if(!isSeatAvailable(seat)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void bookSeat(List<String> seats) {
+        for(String seat : seats){
+            bookSeat(seat);
+        }
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-d HH:mm:ss");
+        String formattedDepartureSchedule = dateFormat.format(this.departureSchedule.getTime());
+
+        Predicate<Boolean> isTrue = Boolean::valueOf;
+
+        int occupied = Algorithm.count(seatAvailability.values(), isTrue);
+        int all = seatAvailability.size();
+        occupied = all - occupied;
+
+        return "Schedule\t: " + formattedDepartureSchedule + "\nOccupied\t: " + occupied + "/" + all;
+    }
 }

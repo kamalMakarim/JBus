@@ -1,9 +1,13 @@
 
 package kamalMakarimJBusRD;
 
+import com.sun.jdi.PrimitiveValue;
+
 import java.util.*;
 
 public class Algorithm {
+
+    private Algorithm(){}
 
     public static <T> boolean exists(T[] array, T value) {
         final Iterator<T> it = Arrays.stream(array).iterator();
@@ -145,5 +149,40 @@ public class Algorithm {
             }
         }
         return null;
+    }
+
+    public static <T> List<T>  paginate(T[] array, int page, int pageSize, Predicate<T> pred) {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return paginate(it, page, pageSize, pred);
+    }
+
+    public static <T> List<T> paginate(Iterable<T> iterable, int page, int pageSize, Predicate<T> pred) {
+        final Iterator<T> it = iterable.iterator();
+        return paginate(it, page, pageSize, pred);
+    }
+
+    public static <T> List<T> paginate(Iterator<T> iterator, int page, int pageSize, Predicate<T> pred){
+        if(iterator == null || pred == null || page < 0 || pageSize < 1){
+            throw new IllegalArgumentException("Invalid");
+        }
+
+        List <T> res = new LinkedList<>();
+        int counter = -1;
+
+        while(iterator.hasNext()){
+            T item = iterator.next();
+            counter ++;
+            if (counter < page * pageSize){
+                continue;
+            }
+            if (counter > (pageSize*page)+pageSize){
+                break;
+            }
+            if(pred.predicate(item)){
+                res.add(item);
+            }
+        }
+
+        return res;
     }
 }
