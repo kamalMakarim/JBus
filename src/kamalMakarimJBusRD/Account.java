@@ -1,7 +1,7 @@
 package kamalMakarimJBusRD;
 
 
-public abstract class Account extends Serializable implements FileParser
+public abstract class Account extends Serializable
 {
     public String email;
     public String name;
@@ -16,6 +16,6 @@ public abstract class Account extends Serializable implements FileParser
     }
     
     public String toString(){
-        return "\naccountId: " + id + "\nemail: " + email + "\nname: " + name + "\npassword: " + password;
+        return "AccountId: " + id + "\temail: " + email + "\tname: " + name + "\tpassword: " + password;
     }
 }

@@ -44,7 +44,7 @@ public class Invoice extends Serializable
     
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        return "\nInvoiceId: " + id + "\nTime: " + sdf.format(time.getTime()) + "\nbuyerId: " + buyerId + "\nrenterId: " + renterId + "\nrating: " + rating + "\nstatus: " + status;
+        return "InvoiceId: " + id + "\tTime: " + sdf.format(time.getTime()) + "\tbuyerId: " + buyerId + "\trenterId: " + renterId + "\trating: " + rating + "\tstatus: " + status;
     }
 
 }

@@ -8,7 +8,15 @@ public class Payment extends Invoice
     private int busId;
     public Timestamp departureDate;
     public String busSeat;
-    
+
+    /**
+     * Construct Payment with the given specification
+     * @param buyerId
+     * @param renterId
+     * @param busId
+     * @param busSeat
+     * @param departureDate
+     */
     public Payment(int buyerId, int renterId, int busId, String busSeat, Timestamp departureDate){
         super(buyerId, renterId);
         this.busId = busId;
@@ -29,7 +37,7 @@ public class Payment extends Invoice
     }
     
     public String toString(){
-        return "\nPaymentId: " + id + "\nTime: " + departureDate + "\nbuyerId: " + buyerId + "\nrenterId" + renterId + "\nbusId" + busId + "\ndepartureTime: " + departureDate + "\nbusSeat+ " + busSeat;
+        return "PaymentId: " + id + "\tTime: " + departureDate + "\tbuyerId: " + buyerId + "\trenterId" + renterId + "\tbusId" + busId + "\tdepartureTime: " + departureDate + "\tbusSeat+ " + busSeat;
     }
     
     public int getBusId(){

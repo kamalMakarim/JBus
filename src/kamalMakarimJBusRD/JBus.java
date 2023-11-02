@@ -16,21 +16,21 @@ import com.google.gson.reflect.TypeToken;
 
 public class JBus {
     public static void main(String[] args) {
-
-        //TP Modul 6
-
-        String filepath = "C:\\Java\\OOP2\\JBus\\data\\station.json";
-        Gson gson = new Gson();
-
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath));
-            List<Station> stationjson = gson.fromJson(bufferedReader, new TypeToken<List<Station>>() {}.getType());
-            stationjson.forEach(e -> System.out.println(e.toString()));
-            System.out.println();
-            bufferedReader.close();
+            String filepath =
+                    "C:\\Java\\OOP2\\JBus\\data\\buses.json";
+            JsonTable<Bus> busList = new JsonTable<>(Bus.class,filepath);
+            List<Bus> filteredBus =
+                    filterByDeparture(busList,City.JAKARTA,1,10);
+            filteredBus.forEach(bus -> System.out.println(bus.toString()));
         }
-        catch (IOException e){
-            e.printStackTrace();
+        catch (Throwable t){
+            t.printStackTrace();
         }
+
+    }
+
+    public static List<Bus> filterByDeparture(List<Bus> busses, City departure, int page, int pageSize){
+        return Algorithm.paginate(busses, page, pageSize, bus -> bus.departure.city.equals(departure));
     }
 }

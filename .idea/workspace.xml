@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d29ecad8-6c83-404f-b46f-ee1fd22b8454" name="Changes" comment="TT5-Paginate salah dikit">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/station.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.2.jar" afterDir="false" />
+    <list default="true" id="d29ecad8-6c83-404f-b46f-ee1fd22b8454" name="Changes" comment="TP6-selesai">
+      <change afterPath="$PROJECT_DIR$/data/buses.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/JsonTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/FileParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Invoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/JBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/JBus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Price.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Rating.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Renter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Renter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Serializable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Serializable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Station.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Station.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Validate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Voucher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kamalMakarimJBusRD/Voucher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +64,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Java/OOP2/JBus/lib",
+    "last_opened_file_path": "C:/Java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,11 +72,19 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Java\OOP2\JBus\data" />
+      <recent name="C:\Java\OOP2\JBus\src\kamalMakarimJBusRD" />
+      <recent name="C:\Java\OOP2\JBus\lib" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.JBus">
     <configuration name="JBus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kamalMakarimJBusRD.JBus" />
       <module name="JBus" />
@@ -75,9 +98,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="JBus" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.JBus" />
+        <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>
@@ -101,7 +132,19 @@
       <workItem from="1696910763971" duration="7000" />
       <workItem from="1697007131001" duration="56000" />
       <workItem from="1697007448977" duration="1873000" />
-      <workItem from="1697119362264" duration="1898000" />
+      <workItem from="1697119362264" duration="2685000" />
+      <workItem from="1697303723528" duration="146000" />
+      <workItem from="1697611141976" duration="2809000" />
+      <workItem from="1697989782323" duration="611000" />
+      <workItem from="1698053223344" duration="32000" />
+      <workItem from="1698053267642" duration="219000" />
+      <workItem from="1698056559355" duration="3553000" />
+      <workItem from="1698061782579" duration="4482000" />
+      <workItem from="1698077120310" duration="2226000" />
+      <workItem from="1698161050694" duration="442000" />
+      <workItem from="1698647547841" duration="1000" />
+      <workItem from="1698821156329" duration="262000" />
+      <workItem from="1698946406655" duration="3736000" />
     </task>
     <task id="LOCAL-00001" summary="CS4-Revisi">
       <option name="closed" value="true" />
@@ -151,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696866168181</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="TP6-selesai">
+      <option name="closed" value="true" />
+      <created>1697121535839</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697121535839</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +239,8 @@
     <MESSAGE value="CS5-Revisi dikit" />
     <MESSAGE value="TT5-Selesai" />
     <MESSAGE value="TT5-Paginate salah dikit" />
-    <option name="LAST_COMMIT_MESSAGE" value="TT5-Paginate salah dikit" />
+    <MESSAGE value="TP6-selesai" />
+    <option name="LAST_COMMIT_MESSAGE" value="TP6-selesai" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

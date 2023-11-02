@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.sql.Timestamp;
 
-public class Bus extends Serializable implements FileParser
+public class Bus extends Serializable
 {
     // instance variables - replace the example below with your own
     public int capacity;
@@ -17,13 +17,11 @@ public class Bus extends Serializable implements FileParser
     public Station departure;
     public Station arrival;
     public List<Schedule> schedules;
-    
-    @Override
+
     public Object write() {
         return null; 
     }
 
-    @Override
     public boolean read(String string) {
         return false;
     }
@@ -39,15 +37,22 @@ public class Bus extends Serializable implements FileParser
         this.city = city;
         this.departure = departure;
         this.arrival = arrival;
-        this.schedules = new ArrayList();
+        this.schedules = new ArrayList<Schedule>();
     }
     
     public String toString(){
-        return "\nbusId: " + id + "\ncapacity: " + capacity + "\nfacility: " + facility + "\nname: " + name + price + "\nbusType: " + busType + "\ncity: " + city + "\nDeparture: " + departure + "\nArrival" + arrival;
+        return "BusId: " + id + "\tcapacity: " + capacity + "\tfacility: " + facility + "\tname: " + name + price + "\tbusType: " + busType + "\tcity: " + city + "\tDeparture: " + departure + "\tArrival" + arrival;
     }
-    
-    public void addSchedule(Timestamp schedule) { 
-        schedules.add(new Schedule(schedule, this.capacity));
-    }   
+
+    public void addSchedule(Timestamp timestamp) {
+        Predicate<Schedule> scheduleExists = schedule -> schedule.departureSchedule.equals(timestamp);
+
+        if(Algorithm.exists(schedules.iterator(), scheduleExists)){
+            System.out.println("Jadwal duplikat");
+        }
+        else {
+            schedules.add(new Schedule(timestamp, this.capacity));
+        }
+    }
 }
 
