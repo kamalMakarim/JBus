@@ -25,7 +25,7 @@ public class Bus extends Serializable
     public boolean read(String string) {
         return false;
     }
-    
+
     public Bus(String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival)
     {
         super();
@@ -39,7 +39,7 @@ public class Bus extends Serializable
         this.arrival = arrival;
         this.schedules = new ArrayList<Schedule>();
     }
-    
+
     public String toString(){
         return "BusId: " + id + "\tcapacity: " + capacity + "\tfacility: " + facility + "\tname: " + name + price + "\tbusType: " + busType + "\tcity: " + city + "\tDeparture: " + departure + "\tArrival" + arrival;
     }

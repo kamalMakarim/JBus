@@ -12,7 +12,7 @@ public class Renter extends Serializable
     // instance variables - replace the example below with your own
     public String address;
     public String companyName;
-    public int phoneNumber;
+    public String phoneNumber;
     private final String REGEX_PHONE = "^\\d{9,12}$";
     private final String REGEX_NAME = "^[A-Z][a-zA-Z0-9_]{3,19}$";
     /**
@@ -24,21 +24,9 @@ public class Renter extends Serializable
         super();
         this.address = "";
         this.companyName = companyName;
-        this.phoneNumber = 0;
+        this.phoneNumber = "0";
     }
 
-    /**
-     * To construct the Renter object with the given specification
-     * phone number = 0
-     * @param companyName The name of the renter company
-     * @param address The address of the renter
-     */
-    public Renter(String companyName, String address){
-        super();
-        this.address = address;
-        this.companyName = companyName;
-        this.phoneNumber = 0;
-    }
 
     /**
      * To construct the Renter object with the given specification
@@ -46,7 +34,7 @@ public class Renter extends Serializable
      * @param companyName The name of the renter company
      * @param phoneNumber The phone number of the renter
      */
-    public Renter(String companyName, int phoneNumber){
+    public Renter(String companyName, String phoneNumber){
         super();
         this.address = "";
         this.companyName = companyName;
@@ -59,17 +47,21 @@ public class Renter extends Serializable
      * @param phoneNumber The phone number of the renter
      * @param address The address of the renter
      */
-    public Renter(String companyName, int phoneNumber, String address){
+    public Renter(String companyName, String phoneNumber, String address){
         super();
         this.address = address;
         this.companyName = companyName;
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * To validate the company name and phone number of the renter using regex
+     * @return true if the pattern is correct
+     */
     public boolean validate(){
         Pattern phonePattern = Pattern.compile(REGEX_PHONE);
         Pattern namePattern = Pattern.compile(REGEX_NAME);
-        Matcher phoneMatcher = phonePattern.matcher(String.valueOf(phoneNumber));
+        Matcher phoneMatcher = phonePattern.matcher(phoneNumber);
         Matcher nameMatcher = namePattern.matcher(companyName);
         return phoneMatcher.find() && nameMatcher.find();
     }
