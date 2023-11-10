@@ -1,11 +1,11 @@
-package com.kamalMakarimJBusRD;
+package com.kamalMakarimJBusRD.dbjson;
 
 import java.util.HashMap;
 
 /**
  * This class is for giving IDs of objects
  */
-public class Serializable {
+public class Serializable implements Comparable<Serializable>{
     public final int id;
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<Class<?>, Integer>();
 
@@ -14,10 +14,7 @@ public class Serializable {
      */
     protected Serializable() {
         Integer counter = mapCounter.get(getClass());
-        if (counter == null) {
-            counter = -1;
-        }
-        counter ++;
+        counter = counter == null ? 0 : counter + 1;
         mapCounter.put(getClass(), counter);
         this.id = counter;
     }
@@ -30,11 +27,7 @@ public class Serializable {
      * @return The last assigned ID of the specified class, or 0 if not found.
      */
     public static <T> Integer getLastAssignedId(Class<?> cls) {
-        Integer temp = mapCounter.get(cls);
-        if (temp != null) {
-            return temp;
-        }
-        return 0;
+        return mapCounter.get(cls);
     }
 
     /**
@@ -45,9 +38,8 @@ public class Serializable {
      * @param <T> The type parameter for the class.
      * @return The ID that was set for the class.
      */
-    public static <T> Integer setLastAssignedId(Class<?> cls, Integer id) {
-        mapCounter.put(cls, id);
-        return getLastAssignedId(cls);
+    public static <T> Integer setLastAssignedId(Class<?> cls, int id) {
+        return mapCounter.put(cls, id);
     }
 
     /**
@@ -58,7 +50,7 @@ public class Serializable {
      * @return true if the objects are equal, false otherwise.
      */
     public boolean equals(Serializable obj) {
-        return obj != null && obj.getClass() == this.getClass() && obj.id == id;
+        return obj instanceof Serializable && ((Serializable) obj).id == this.id;
     }
 
     /**
@@ -68,19 +60,8 @@ public class Serializable {
      * @param obj The object to compare with this object.
      * @return true if the objects are equal, false otherwise.
      */
-    public boolean compareTo(Serializable obj) {
-        return obj != null && obj.getClass() == this.getClass() && obj.id == id;
+    public int compareTo(Serializable obj) {
+        return ((Integer)this.id).compareTo(obj.id);
     }
 
-    /**
-     * Compares this object with another object for equality. Two objects are considered equal
-     * if they are of the same class and have the same 'id' value.
-     *
-     * @param obj The object to compare with this object.
-     * @return true if the objects are equal, false otherwise.
-     */
-    @Override
-    public boolean equals(Object obj) {
-        return obj != null && obj.getClass() == getClass() && ((Serializable) obj).id == id;
-    }
 }

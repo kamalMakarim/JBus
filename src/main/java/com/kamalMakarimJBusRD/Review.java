@@ -1,5 +1,7 @@
 package com.kamalMakarimJBusRD;
 
+import com.kamalMakarimJBusRD.dbjson.Serializable;
+
 /**
  * This class represents a review from a customer
  */

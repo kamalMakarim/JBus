@@ -1,4 +1,7 @@
 package com.kamalMakarimJBusRD;
+
+import com.kamalMakarimJBusRD.dbjson.Serializable;
+
 /**
  * This class represents the station bus
  */

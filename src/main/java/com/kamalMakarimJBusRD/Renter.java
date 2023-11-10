@@ -1,8 +1,9 @@
 package com.kamalMakarimJBusRD;
 
+import com.kamalMakarimJBusRD.dbjson.Serializable;
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * This class represents a renter

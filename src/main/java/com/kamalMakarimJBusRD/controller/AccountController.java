@@ -1,15 +1,16 @@
-package com.kamalMakarimJBusRD;
+package com.kamalMakarimJBusRD.controller;
 
+import com.kamalMakarimJBusRD.Account;
+import com.kamalMakarimJBusRD.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
-
-
 
 
 
 @RestController
 @RequestMapping("/account")
-public class AccountController
+public class AccountController implements BasicGetController<Account>
 {
+    public static JsonTable<Account> accountTable;
     @GetMapping
     String index() { return "account page"; }
 
@@ -24,6 +25,4 @@ public class AccountController
         return new Account(name, email, password);
     }
 
-    @GetMapping("/{id}")
-    String getById(@PathVariable int id) { return "account id "+ id + " not found!"; }
 }

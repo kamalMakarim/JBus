@@ -1,5 +1,7 @@
 package com.kamalMakarimJBusRD;
 
+import com.kamalMakarimJBusRD.dbjson.Serializable;
+
 /**
  * Represents the voucher in a bus system
  */

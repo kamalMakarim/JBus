@@ -1,4 +1,6 @@
 package com.kamalMakarimJBusRD;
+import com.kamalMakarimJBusRD.dbjson.Serializable;
+
 import java.text.SimpleDateFormat;
 import java.sql.Timestamp;
 
