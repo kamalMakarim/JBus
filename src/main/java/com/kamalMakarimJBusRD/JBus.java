@@ -2,12 +2,15 @@ package com.kamalMakarimJBusRD;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import com.kamalMakarimJBusRD.dbjson.JsonDBEngine;
 
 @SpringBootApplication
 public class JBus {
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) {
+
+        JsonDBEngine.Run(JBus.class);
         SpringApplication.run(JBus.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {JsonDBEngine.join();}));
     }
     /*
     public static void main(String[] args) throws InterruptedException {

@@ -14,8 +14,8 @@ public class Renter extends Serializable
     public String address;
     public String companyName;
     public String phoneNumber;
-    private final String REGEX_PHONE = "^\\d{9,12}$";
-    private final String REGEX_NAME = "^[A-Z][a-zA-Z0-9_]{3,19}$";
+    private static final String REGEX_PHONE = "^\\d{9,12}$";
+    private static final String REGEX_NAME = "^[A-Z][a-zA-Z0-9_]{3,19}$";
     /**
      * To construct the Renter object with the given specification
      * address = "", phoneNumber = 0

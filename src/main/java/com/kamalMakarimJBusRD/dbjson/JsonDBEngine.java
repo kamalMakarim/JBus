@@ -11,7 +11,6 @@ import java.util.Collections;
 import java.util.HashMap;
 
 
-
 /**
  * Handle load and store for {@link JsonTable}
  * @author Netlab Team
