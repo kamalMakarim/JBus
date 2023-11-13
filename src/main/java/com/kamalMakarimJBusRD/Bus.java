@@ -9,14 +9,16 @@ public class Bus extends Serializable
 {
     // instance variables - replace the example below with your own
     public int capacity;
-    public Facility facility;
+    public List<Facility> facilities;
     public String name;
     public Price price;
     public BusType busType;
-    public City city;
     public Station departure;
     public Station arrival;
     public List<Schedule> schedules;
+    public int accountId;
+    public Object account;
+
 
     public Object write() {
         return null; 
@@ -26,22 +28,22 @@ public class Bus extends Serializable
         return false;
     }
 
-    public Bus(String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival)
+    public Bus(int accountId,String name, List<Facility> facilities, Price price, int capacity, BusType busType, Station departure, Station arrival)
     {
         super();
+        this.accountId = accountId;
         this.capacity = capacity;
-        this.facility = facility;
+        this.facilities = facilities;
         this.price = price;
         this.name = name;
         this.busType = busType;
-        this.city = city;
         this.departure = departure;
         this.arrival = arrival;
         this.schedules = new ArrayList<Schedule>();
     }
 
     public String toString(){
-        return "BusId: " + id + "\tcapacity: " + capacity + "\tfacility: " + facility + "\tname: " + name + price + "\tbusType: " + busType + "\tcity: " + city + "\tDeparture: " + departure + "\tArrival" + arrival;
+        return "BusId: " + id + "\tcapacity: " + capacity + "\tfacility: " + facilities + "\tname: " + name + price + "\tbusType: " + busType + "\tDeparture: " + departure + "\tArrival" + arrival;
     }
 
     public void addSchedule(Timestamp timestamp) {

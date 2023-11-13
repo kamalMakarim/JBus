@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fba21b18-f982-4fce-93e4-e8ab7df4f5b2" name="Changes" comment="CS7-Belum Selesai">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fba21b18-f982-4fce-93e4-e8ab7df4f5b2" name="Changes" comment="CS7-lupa json">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/controller/BusController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/controller/PaymentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/controller/StationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/json/station.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/JBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/JBus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/Renter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/Renter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/controller/BasicGetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/controller/BasicGetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/dbjson/JsonDBEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/dbjson/JsonDBEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/json/account.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kamalMakarimJBusRD/json/account.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,7 @@
       <list>
         <option value="Interface" />
         <option value="package.json" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -49,27 +51,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Java/OOP2/JBus",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Java/OOP2/JBus&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Java\OOP2\JBus\src\main\java\com\kamalMakarimJBusRD\json" />
       <recent name="C:\Java\OOP2\JBus\src\main\java\com\kamalMakarimJBusRD\controller" />
       <recent name="C:\Java\OOP2\JBus\src\main\java\com\kamalMakarimJBusRD\dbjson" />
       <recent name="C:\Java\OOP2\JBus\src\main\java\dbjson" />
@@ -127,7 +130,8 @@
       <updated>1699539347245</updated>
       <workItem from="1699539348329" duration="5207000" />
       <workItem from="1699584111975" duration="7136000" />
-      <workItem from="1699601463918" duration="22542000" />
+      <workItem from="1699601463918" duration="22607000" />
+      <workItem from="1699876952124" duration="12282000" />
     </task>
     <task id="LOCAL-00001" summary="TP7-Selesai">
       <option name="closed" value="true" />
@@ -145,7 +149,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699591113674</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="CS7-Selesai">
+      <option name="closed" value="true" />
+      <created>1699628677263</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699628677263</updated>
+    </task>
+    <task id="LOCAL-00004" summary="CS7-lupa json">
+      <option name="closed" value="true" />
+      <created>1699628710942</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699628710942</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +174,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="TP7-Selesai" />
     <MESSAGE value="CS7-Belum Selesai" />
-    <option name="LAST_COMMIT_MESSAGE" value="CS7-Belum Selesai" />
+    <MESSAGE value="CS7-Selesai" />
+    <MESSAGE value="CS7-lupa json" />
+    <option name="LAST_COMMIT_MESSAGE" value="CS7-lupa json" />
   </component>
 </project>

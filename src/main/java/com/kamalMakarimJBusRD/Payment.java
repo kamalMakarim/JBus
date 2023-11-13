@@ -7,37 +7,37 @@ public class Payment extends Invoice
 {
     private int busId;
     public Timestamp departureDate;
-    public String busSeat;
+    public List<String> busSeats;
 
     /**
      * Construct Payment with the given specification
      * @param buyerId
      * @param renterId
      * @param busId
-     * @param busSeat
+     * @param busSeats
      * @param departureDate
      */
-    public Payment(int buyerId, int renterId, int busId, String busSeat, Timestamp departureDate){
+    public Payment(int buyerId, int renterId, int busId, List<String> busSeats, Timestamp departureDate){
         super(buyerId, renterId);
         this.busId = busId;
         this.departureDate = departureDate;
-        this.busSeat = busSeat;
+        this.busSeats = busSeats;
     }
     
-    public Payment(Account buyer, Renter renter, int busId, String busSeat, Timestamp departureDate){
+    public Payment(Account buyer, Renter renter, int busId, List<String> busSeats, Timestamp departureDate){
         super(buyer, renter);
         this.busId = busId;
-        this.busSeat = busSeat;
+        this.busSeats = busSeats;
         this.departureDate = departureDate;
     }
     
     public String getDepartureInfo(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");  
-        return "\nPaymentId: " + id + "\nTime: " + sdf.format(departureDate.getTime()) + "\nbuyerId: " + buyerId + "\nrenterId" + renterId + "\nbusId" + busId + "\nbusSeat: " + busSeat;
+        return "\nPaymentId: " + id + "\nTime: " + sdf.format(departureDate.getTime()) + "\nbuyerId: " + buyerId + "\nrenterId" + renterId + "\nbusId" + busId + "\nbusSeats: " + busSeats;
     }
     
     public String toString(){
-        return "PaymentId: " + id + "\tTime: " + departureDate + "\tbuyerId: " + buyerId + "\trenterId" + renterId + "\tbusId" + busId + "\tdepartureTime: " + departureDate + "\tbusSeat+ " + busSeat;
+        return "PaymentId: " + id + "\tTime: " + departureDate + "\tbuyerId: " + buyerId + "\trenterId" + renterId + "\tbusId" + busId + "\tdepartureTime: " + departureDate + "\tbusSeats+ " + busSeats;
     }
     
     public int getBusId(){
@@ -60,6 +60,7 @@ public class Payment extends Invoice
     }
 
     public static boolean makeBooking(Timestamp departureSchedule, List<String> seats, Bus bus){
+        System.out.println(bus.schedules);
         for(Schedule s : bus.schedules){
             if (s.isSeatAvailable(seats) && s.departureSchedule.equals(departureSchedule)) {
                 s.bookSeat(seats);

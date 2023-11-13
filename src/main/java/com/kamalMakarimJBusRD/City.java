@@ -3,10 +3,14 @@ package com.kamalMakarimJBusRD;
 public enum City
 {
     JAKARTA,
-    BANDUNG,
     DEPOK,
+    BANDUNG,
+    YOGYAKARTA,
     SEMARANG,
     SURABAYA,
     BALI,
-    YOGYAKARTA;
+    TANGERANG,
+    BOGOR,
+    BEKASI,
+    SUKABUMI,
 }
