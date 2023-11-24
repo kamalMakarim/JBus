@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import static org.apache.logging.log4j.util.Strings.isBlank;
-
 @RestController
 @RequestMapping("/account")
 public class AccountController implements BasicGetController<Account>
@@ -33,6 +31,7 @@ public class AccountController implements BasicGetController<Account>
 
         Account account = new Account(name, email, password);
         MessageDigest md = null;
+        System.out.println("account validate : " + account.validate());
         if(!account.validate()){
             return new BaseResponse<>(false, "Invalid email or password", null);
         }
@@ -53,8 +52,8 @@ public class AccountController implements BasicGetController<Account>
         if(Algorithm.exists(accountTable, p)){
             return new BaseResponse<>(false, "Email already used", null);
         }
-
-        if(account.validate() && !isBlank(name)){
+        System.out.println("name is blank : " + name.isBlank());
+        if(!name.isBlank()){
             accountTable.add(account);
             return new BaseResponse<>(true, "Account created", account);
         }

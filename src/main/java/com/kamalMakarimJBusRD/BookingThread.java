@@ -1,5 +1,4 @@
 package com.kamalMakarimJBusRD;
-
 import java.sql.Timestamp;
 public class BookingThread extends Thread{
     private Bus bus;
