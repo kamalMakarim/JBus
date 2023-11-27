@@ -3,10 +3,7 @@ package com.kamalMakarimJBusRD.controller;
 import com.kamalMakarimJBusRD.*;
 import com.kamalMakarimJBusRD.dbjson.JsonAutowired;
 import com.kamalMakarimJBusRD.dbjson.JsonTable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -77,4 +74,11 @@ public class BusController implements BasicGetController<Bus>{
         }
         return new BaseResponse<>(false, "Station not found", null);
     }
+
+    @GetMapping("/getMyBus")
+    public List<Bus> getMyBus(@RequestParam int accountId) {
+        return Algorithm.<Bus>collect(getJsonTable(),
+                b->b.accountId==accountId);
+    }
+
 }

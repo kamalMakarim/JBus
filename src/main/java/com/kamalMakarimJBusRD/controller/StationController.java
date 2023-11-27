@@ -5,10 +5,9 @@ import com.kamalMakarimJBusRD.City;
 import com.kamalMakarimJBusRD.Station;
 import com.kamalMakarimJBusRD.dbjson.JsonAutowired;
 import com.kamalMakarimJBusRD.dbjson.JsonTable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/station")
@@ -51,5 +50,8 @@ public class StationController implements BasicGetController<Station> {
             return new BaseResponse<>(false, "An error occurred while adding the station", null);
         }
     }
+
+    @GetMapping("/getAll")
+    public List<Station> getAllStation() { return getJsonTable();}
 
 }
