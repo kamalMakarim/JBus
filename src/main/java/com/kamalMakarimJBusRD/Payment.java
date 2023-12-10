@@ -1,6 +1,9 @@
 package com.kamalMakarimJBusRD;
-import java.text.SimpleDateFormat;
+
+import com.kamalMakarimJBusRD.controller.BusController;
+
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class Payment extends Invoice
@@ -129,5 +132,14 @@ public class Payment extends Invoice
     public static Schedule availableSchedule(Timestamp departureDate, List<String> busSeatList, Bus bus) {
         Predicate<Schedule> predicate = sched -> departureDate.equals(sched.departureSchedule) && sched.isSeatAvailable(busSeatList);
         return Algorithm.find(bus.schedules, predicate);
+    }
+
+    /**
+     * Get the bus object
+     * @return The bus object
+     */
+    public Bus getBus(){
+        Predicate<Bus> predicate = bus -> bus.id == busId;
+        return Algorithm.find(BusController.busTable, predicate);
     }
 }

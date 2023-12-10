@@ -78,6 +78,10 @@ public class PaymentController implements BasicGetController<Payment>{
             return new BaseResponse<>(false, "Payment not waiting", null);
         }
         payment.status = Invoice.PaymentStatus.SUCCESS;
+        Predicate<Account> p2 = a -> a.id == payment.buyerId;
+        Account buyer = Algorithm.find(AccountController.accountTable, p2);
+        double totalAmount = payment.busSeats.size() * payment.getBus().price.price;
+        buyer.balance -= totalAmount;
         return new BaseResponse<>(true, "Payment accepted", payment);
     }
 
@@ -85,13 +89,31 @@ public class PaymentController implements BasicGetController<Payment>{
     public BaseResponse<Payment> cancel(@PathVariable int id){
         Predicate<Payment> p = p1 -> p1.id == id;
         Payment payment = Algorithm.find(paymentTable, p);
-        if(payment == null){
-            return new BaseResponse<>(false, "Payment not found", null);
-        }
+        Predicate<Account> buyerPredicate = a -> a.id == payment.buyerId;
+        Account buyer = Algorithm.find(AccountController.accountTable, buyerPredicate);
+        double totalAmount = payment.busSeats.size() * payment.getBus().price.price;
+        buyer.balance += totalAmount;
         payment.status = Invoice.PaymentStatus.FAILED;
+        //make the bus seat available again
+        Predicate<Bus> busPredicate = b -> b.id == payment.getBus().id;
+        Bus bus = Algorithm.find(BusController.busTable, busPredicate);
+        Predicate<Schedule> schedulePredicate = s -> s.departureSchedule.equals(payment.departureDate);
+        Schedule schedule = Algorithm.find(bus.schedules, schedulePredicate);
+        for(String seat : payment.busSeats){
+            schedule.seatAvailability.put(seat, true);
+        }
         return new BaseResponse<>(true, "Payment cancelled", payment);
     }
 
+    @RequestMapping(value="/getMyPayment", method= RequestMethod.GET)
+    public BaseResponse<List<Payment>> getMyPayment(@RequestParam int accountId){
+        Predicate<Payment> p = p1 -> p1.buyerId == accountId || p1.renterId == accountId;
+        List<Payment> payments = Algorithm.collect(paymentTable, p);
+        if(payments == null){
+            return new BaseResponse<>(false, "Payment not found", null);
+        }
+        return new BaseResponse<>(true, "Payment found", payments);
+    }
 }
 
 
