@@ -4,7 +4,6 @@ import com.kamalMakarimJBusRD.*;
 import com.kamalMakarimJBusRD.dbjson.JsonAutowired;
 import com.kamalMakarimJBusRD.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
-
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -49,7 +48,7 @@ public class BusController implements BasicGetController<Bus>{
             @RequestParam int capacity,
             @RequestParam List<Facility> facilities,
             @RequestParam BusType busType,
-            @RequestParam int price,
+            @RequestParam double price,
             @RequestParam int stationDepartureId,
             @RequestParam int stationArrivalId){
         Predicate<Account> p = a -> a.id == accountId;
@@ -76,9 +75,12 @@ public class BusController implements BasicGetController<Bus>{
     }
 
     @GetMapping("/getMyBus")
-    public List<Bus> getMyBus(@RequestParam int accountId) {
-        return Algorithm.<Bus>collect(getJsonTable(),
-                b->b.accountId==accountId);
+    public BaseResponse<List<Bus>> getMyBus(@RequestParam int accountId) {
+        Predicate<Bus> p = b -> b.accountId == accountId;
+        return new BaseResponse<>(true, "Bus found", Algorithm.collect(busTable, p));
     }
 
+
+    @GetMapping("/getAll")
+    public List<Bus> getAllBus(){ return getJsonTable();}
 }

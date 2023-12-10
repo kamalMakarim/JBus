@@ -44,11 +44,12 @@ public class PaymentController implements BasicGetController<Payment>{
         }
         Timestamp scheduleTime;
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            scheduleTime = Timestamp.valueOf(LocalDateTime.parse(departureDate, formatter));
+            DateTimeFormatter formatterChecker = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            scheduleTime = Timestamp.valueOf(LocalDateTime.parse(departureDate, formatterChecker));
         } catch (DateTimeParseException e) {
             return new BaseResponse<>(false, "Invalid time format", null);
         }
+
         Predicate<Schedule> p3 = s -> s.departureSchedule.equals(scheduleTime);
         Schedule schedule = Algorithm.find(bus.schedules.iterator(), p3);
         if(schedule == null){
@@ -57,7 +58,7 @@ public class PaymentController implements BasicGetController<Payment>{
 
 
         if(Payment.makeBooking(scheduleTime, busSeats, bus)){
-            Payment payment = new Payment(buyerId, renterId, busId, busSeats, Timestamp.valueOf(departureDate));
+            Payment payment = new Payment(buyerId, renterId, busId, busSeats, scheduleTime);
             payment.status = Invoice.PaymentStatus.WAITING;
             paymentTable.add(payment);
             return new BaseResponse<>(true, "Booking made", payment);

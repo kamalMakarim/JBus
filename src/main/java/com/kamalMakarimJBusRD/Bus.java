@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 
 public class Bus extends Serializable
 {
-    // instance variables - replace the example below with your own
     public int capacity;
     public List<Facility> facilities;
     public String name;
@@ -19,15 +18,26 @@ public class Bus extends Serializable
     public int accountId;
     public Object account;
 
-
     public Object write() {
-        return null; 
+        return null;
     }
+
 
     public boolean read(String string) {
         return false;
     }
 
+    /**
+     * Constructor for objects of class Bus
+     * @param accountId The account id
+     * @param name The bus name
+     * @param facilities The list of facilities
+     * @param price The price object
+     * @param capacity The bus capacity
+     * @param busType The bus type
+     * @param departure The departure station
+     * @param arrival The arrival station
+     */
     public Bus(int accountId,String name, List<Facility> facilities, Price price, int capacity, BusType busType, Station departure, Station arrival)
     {
         super();
@@ -42,10 +52,18 @@ public class Bus extends Serializable
         this.schedules = new ArrayList<Schedule>();
     }
 
+    /**
+     * convert all data in the Bus object to string
+     * @return All data in the Bus object in a string
+     */
     public String toString(){
         return "BusId: " + id + "\tcapacity: " + capacity + "\tfacility: " + facilities + "\tname: " + name + price + "\tbusType: " + busType + "\tDeparture: " + departure + "\tArrival" + arrival;
     }
 
+    /**
+     * to add schedule to the bus
+     * @param timestamp The timestamp of the new schedule
+     */
     public void addSchedule(Timestamp timestamp) {
         Predicate<Schedule> scheduleExists = schedule -> schedule.departureSchedule.equals(timestamp);
 

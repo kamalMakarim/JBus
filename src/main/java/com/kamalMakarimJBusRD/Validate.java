@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Validate
 {
+    /**
+     * constructor for validate
+     */
     public Validate(){
     }
 

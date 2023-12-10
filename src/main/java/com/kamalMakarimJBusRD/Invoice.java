@@ -34,7 +34,7 @@ public class Invoice extends Serializable
         this.rating = BusRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
-    
+
     public Invoice(Account buyer, Renter renter){
         super();
         this.time = new Timestamp(System.currentTimeMillis());
@@ -43,7 +43,11 @@ public class Invoice extends Serializable
         this.rating = BusRating.NONE;
         this.status = PaymentStatus.WAITING;
     }
-    
+
+    /**
+     * To get the invoice information
+     * @return The invoice information
+     */
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return "InvoiceId: " + id + "\tTime: " + sdf.format(time.getTime()) + "\tbuyerId: " + buyerId + "\trenterId: " + renterId + "\trating: " + rating + "\tstatus: " + status;

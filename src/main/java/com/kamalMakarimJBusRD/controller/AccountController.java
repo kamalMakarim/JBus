@@ -111,11 +111,11 @@ public class AccountController implements BasicGetController<Account>
         Predicate<Account> p = t -> t.id == id;
         Account account = Algorithm.find(accountTable, p);
         if (account != null) {
-            if (account.company != null)
-                return new BaseResponse<>(false, "Renter already registered", null);
-            Renter renter = new Renter(companyName, address, PhoneNumber);
-            if (!renter.validate())
-                return new BaseResponse<>(false, "Invalid renter inputs", null);
+            if (account.company != null){
+                return new BaseResponse<>(false, "Renter already registered", null);}
+            Renter renter = new Renter(companyName, PhoneNumber, address);
+            if (!renter.validate()){
+                return new BaseResponse<>(false, "Invalid renter inputs", null);}
             account.company = renter;
             return new BaseResponse<>(true, "Renter created", renter);
         }
